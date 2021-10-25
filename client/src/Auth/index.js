@@ -17,8 +17,7 @@ const Auth = () => {
   const [formData, setFormData] = useState({
     fullname: "",
     username: "",
-    password: "",
-    confirmPassword: "",
+    password: ""
   });
 
   function switchMode() {
@@ -92,19 +91,7 @@ const Auth = () => {
                 onChange={handleChange}
                 required
               />
-            </Input>
-            {isSignUp && (
-              <Input>
-                <label htmlFor="confirmPassword">CONFIRM PASSWORD:</label>
-                <input
-                  name="confirmPassword"
-                  type="password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  required
-                />
-              </Input>
-            )}
+            </Input>git 
             <Button>
               <button type="submit">{isSignUp ? "Sign Up" : "Sign In"}</button>
             </Button>
