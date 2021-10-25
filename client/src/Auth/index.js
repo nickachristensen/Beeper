@@ -13,10 +13,10 @@ import {
 import LoginImage from "../images/login.jpeg";
 
 const Auth = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
   const [formData, setFormData] = useState({
-    fullName: "",
-    userName: "",
+    fullname: "",
+    username: "",
     password: "",
     confirmPassword: "",
   });
@@ -29,18 +29,43 @@ const Auth = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const newUser = {
+      fullname: formData.fullname,
+      username: formData.username,
+      password: formData.password,
+    };
+
+    fetch(`http://localhost:3000/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((r) => r.json())
+      .then((data) => console.log(data));
+    setFormData({
+      fullname: "",
+      username: "",
+      password: "",
+    });
+  }
+
   return (
     <Wrapper>
       <Content>
         <Form>
           <h2>Welcome!</h2>
           <em>Meow!</em>
-          <form onSubmit={() => {}}>
+          <form onSubmit={handleSubmit}>
             {isSignUp && (
               <Input>
-                <label htmlFor="fullName">FULLNAME:</label>
+                <label htmlFor="fullname">FULLNAME:</label>
                 <input
-                  name="fullName"
+                  name="fullname"
                   type="text"
                   value={formData.fullname}
                   onChange={handleChange}
@@ -49,9 +74,9 @@ const Auth = () => {
               </Input>
             )}
             <Input>
-              <label htmlFor="userName">USERNAME:</label>
+              <label htmlFor="username">USERNAME:</label>
               <input
-                name="userName"
+                name="username"
                 type="text"
                 value={formData.username}
                 onChange={handleChange}
