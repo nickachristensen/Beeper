@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 
 // Styles
-import { Wrapper, Content, Form, Input } from "./Auth.styles";
+import {
+  Wrapper,
+  Content,
+  Form,
+  Input,
+  Button,
+  Account,
+  Image,
+} from "./Auth.styles";
+import LoginImage from "../images/login.jpeg";
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [formData, setFormData] = useState({
-    fullname: "",
-    username: "",
+    fullName: "",
+    userName: "",
     password: "",
     confirmPassword: "",
   });
@@ -42,7 +51,7 @@ const Auth = () => {
             <Input>
               <label htmlFor="userName">USERNAME:</label>
               <input
-                name="username"
+                name="userName"
                 type="text"
                 value={formData.username}
                 onChange={handleChange}
@@ -71,21 +80,23 @@ const Auth = () => {
                 />
               </Input>
             )}
-            <div className="submit_button_form">
+            <Button>
               <button type="submit">{isSignUp ? "Sign Up" : "Sign In"}</button>
-            </div>
+            </Button>
           </form>
-          <div className="auth_form_conditions">
+          <Account>
             <p>
-              {isSignUp ? "Already have an accont" : "Don't have an account"}
-              <em onClick={switchMode}>{isSignUp ? "Sign In" : "Sign Up"}</em>
+              {isSignUp ? "Already have an account?" : "Don't have an account?"}
+              <span onClick={switchMode}>
+                {isSignUp ? "Sign In" : "Sign Up"}
+              </span>
             </p>
-          </div>
+          </Account>
         </Form>
-        <div className="auth_form_container_image">
-            <img alt="sign in"/>
-        </div>
       </Content>
+      <Image>
+        <img src={LoginImage} alt="sign in" />
+      </Image>
     </Wrapper>
   );
 };
