@@ -91,7 +91,7 @@ const Auth = () => {
                 onChange={handleChange}
                 required
               />
-            </Input>git 
+            </Input>
             <Button>
               <button type="submit">{isSignUp ? "Sign Up" : "Sign In"}</button>
             </Button>
