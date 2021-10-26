@@ -12,47 +12,40 @@ import {
 } from "./Auth.styles";
 import LoginImage from "../images/login.jpeg";
 
-const Auth = ({ authCheck, setAuthCheck }) => {
+const Auth = ({ authCheck, setAuthCheck, setCurrentUser }) => {
   const [isSignUp, setIsSignUp] = useState(true);
-  const [formData, setFormData] = useState({
-    fullname: "",
-    username: "",
-    password: "",
-  });
+  const [fullname, setFullname] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   function switchMode() {
     setIsSignUp(!isSignUp);
   }
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    const newUser = {
-      fullname: formData.fullname,
-      username: formData.username,
-      password: formData.password,
-    };
-
-    fetch(`http://localhost:3000/users`, {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newUser),
-    })
-      .then((r) => r.json())
-      .then((data) => console.log(data));
-    setAuthCheck(!authCheck);
-    setFormData({
-      fullname: "",
-      username: "",
-      password: "",
+      body: JSON.stringify({
+        fullname,
+        username,
+        password,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setCurrentUser(user);
+        });
+      } else {
+        res.json().then((errors) => {
+          console.error(errors);
+        });
+      }
     });
-  }
+  };
 
   return (
     <Wrapper>
@@ -67,8 +60,8 @@ const Auth = ({ authCheck, setAuthCheck }) => {
                 <input
                   name="fullname"
                   type="text"
-                  value={formData.fullname}
-                  onChange={handleChange}
+                  value={fullname}
+                  onChange={(e) => setFullname(e.target.value)}
                   required
                 />
               </Input>
@@ -78,8 +71,8 @@ const Auth = ({ authCheck, setAuthCheck }) => {
               <input
                 name="username"
                 type="text"
-                value={formData.username}
-                onChange={handleChange}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </Input>
@@ -88,8 +81,8 @@ const Auth = ({ authCheck, setAuthCheck }) => {
               <input
                 name="password"
                 type="password"
-                value={formData.password}
-                onChange={handleChange}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </Input>
