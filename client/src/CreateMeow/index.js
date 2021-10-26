@@ -1,69 +1,69 @@
 import React, { useState } from "react";
 import {
-    Wrapper,
-    Content,
-    Form,
-    Input,
-    Button,
-    Account,
-    Image,
-  } from "./CreateMeow.styles";
-
+  Wrapper,
+  Content,
+  Form,
+  Input,
+  Button,
+  Account,
+  Image,
+} from "./CreateMeow.styles";
 
 const CreateMeow = () => {
-    const [isEditing, setIsEditing] = useState(false);
-    const [formData, setFormData] = useState ({
-        content: '',
+  const [isEditing, setIsEditing] = useState(false);
+  const [content, setContent] = useState("");
+
+  function handleCreate(event) {
+    event.preventDefault();
+    fetch(`http://localhost:3000/posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content }),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setContent(data);
+        });
+      } else {
+        res.json().then((errors) => {
+          console.error(errors);
+        });
+      }
     });
-
-    function handleCreate(event) {
-            event.preventDefault()
-              const createMeow = {
-                content: formData.content,
-              };
-              fetch(`http://localhost:3000/posts`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(createMeow),
-              })
-                .then((r) => r.json())
-                .then(data => console.log(data))
-                // .then(setIsEditing((isEditing) => !isEditing),
-                }
-
-            
-        
-        function handleChange(event) {
-            setFormData({
-                ...formData,
-                [event.target.name]: event.target.value,
-            });
-        }
-    return (
-        <Wrapper>
-            <Content>
-            {isEditing ?
-            <Form>
-            <form onSubmit = {handleCreate}>
-                <Input>
-                    <label htmlFor="createmeow">CREATE MEOW:</label>
-                        <input type = "text" value={formData.content} onChange={handleChange} name="content" />
-                </Input>
-                <Button>
-                        <button type="submit">✅</button>
-                </Button>
-            </form>    
-            </Form>
-        :
-                <Input>
-                    <Button>
-                        <button onClick={() => setIsEditing((isEditing) => !isEditing)}>Meow Now!🐈</button> 
-                    </Button>
-                </Input>}
-        </Content> 
+  }
+  return (
+    <Wrapper>
+      <Content>
+        {isEditing ? (
+          <Form>
+            <form onSubmit={handleCreate}>
+              <Input>
+                <label htmlFor="createmeow">CREATE MEOW:</label>
+                <input
+                  type="text"
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  name="content"
+                />
+              </Input>
+              <Button>
+                <button type="submit">✅</button>
+              </Button>
+            </form>
+          </Form>
+        ) : (
+          <Input>
+            <Button>
+              <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
+                Meow Now!🐈
+              </button>
+            </Button>
+          </Input>
+        )}
+      </Content>
     </Wrapper>
-    );
+  );
 };
-export default CreateMeow 
+export default CreateMeow;

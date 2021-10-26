@@ -1,19 +1,21 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    render json: @posts, status: :ok
   end
 
   def show
     @post = Post.find(params[:id])
+    render json: @post, status: :ok
   end
 
   def create
     @post = Post.new(post_params)
     if @post.save
-      session[:user_id] = user.id
+      
       render json: @post, status: :created
     else
-      render "new"
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
@@ -22,7 +24,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post
     else
-      render "edit"
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,6 +37,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:content)
+    params.permit(:content, :user_id, :message_id)
   end
 end
