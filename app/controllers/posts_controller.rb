@@ -10,9 +10,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
-      
       render json: @post, status: :created
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -37,6 +36,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:content, :user_id, :message_id)
+    params.permit(:content)
   end
 end

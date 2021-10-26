@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
   belongs_to :user
-  belongs_to :message
+  has_many :replies, dependent: :destroy
 end

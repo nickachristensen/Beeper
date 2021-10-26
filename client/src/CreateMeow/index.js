@@ -11,7 +11,7 @@ import {
 
 const CreateMeow = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState([]);
 
   function handleCreate(event) {
     event.preventDefault();
