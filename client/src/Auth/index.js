@@ -12,12 +12,12 @@ import {
 } from "./Auth.styles";
 import LoginImage from "../images/login.jpeg";
 
-const Auth = () => {
+const Auth = ({ authCheck, setAuthCheck }) => {
   const [isSignUp, setIsSignUp] = useState(true);
   const [formData, setFormData] = useState({
     fullname: "",
     username: "",
-    password: ""
+    password: "",
   });
 
   function switchMode() {
@@ -46,6 +46,7 @@ const Auth = () => {
     })
       .then((r) => r.json())
       .then((data) => console.log(data));
+    setAuthCheck(!authCheck);
     setFormData({
       fullname: "",
       username: "",
