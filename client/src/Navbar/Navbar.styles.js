@@ -15,6 +15,11 @@ export const Content = styled.div`
   margin: 0 auto;
   p{
       padding: 8px;
+      color: white;
+  }
+  p:hover {
+    cursor: pointer;
+    border-bottom: 2px solid white;
   }
 `;
 
