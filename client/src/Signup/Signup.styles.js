@@ -89,6 +89,8 @@ export const Button = styled.div`
     outline: none;
     cursor: pointer;
     transition: 0.3s ease;
+    letter-spacing: 0.7px;
+    margin-top: 1rem;
   }
 
   button:hover {

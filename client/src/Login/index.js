@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Styles
 import {
@@ -9,12 +10,11 @@ import {
   Button,
   Account,
   Image,
-} from "./Auth.styles";
+} from "./Login.styles";
 import LoginImage from "../images/login4.png";
 
-const Auth = ({ authCheck, setAuthCheck, setCurrentUser }) => {
+const Login = ({ authCheck, setAuthCheck, setCurrentUser }) => {
   const [isSignUp, setIsSignUp] = useState(true);
-  const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,16 +24,12 @@ const Auth = ({ authCheck, setAuthCheck, setCurrentUser }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("/signup", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        fullname,
-        username,
-        password,
-      }),
+      body: JSON.stringify({ username, password }),
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
@@ -54,18 +50,6 @@ const Auth = ({ authCheck, setAuthCheck, setCurrentUser }) => {
           <h2>Welcome!</h2>
           <em>Meow!</em>
           <form onSubmit={handleSubmit}>
-            {isSignUp && (
-              <Input>
-                <label htmlFor="fullname">FULLNAME:</label>
-                <input
-                  name="fullname"
-                  type="text"
-                  value={fullname}
-                  onChange={(e) => setFullname(e.target.value)}
-                  required
-                />
-              </Input>
-            )}
             <Input>
               <label htmlFor="username">USERNAME:</label>
               <input
@@ -87,16 +71,12 @@ const Auth = ({ authCheck, setAuthCheck, setCurrentUser }) => {
               />
             </Input>
             <Button>
-              <button type="submit">{isSignUp ? "Sign Up" : "Sign In"}</button>
+              <button type="submit">Sign In</button>
             </Button>
           </form>
           <Account>
-            <p>
-              {isSignUp ? "Already have an account?" : "Don't have an account?"}
-              <span onClick={switchMode}>
-                {isSignUp ? "Sign In" : "Sign Up"}
-              </span>
-            </p>
+            <p>Don't have an account?</p>
+            <Link to="/signup">Sign Up</Link>
           </Account>
         </Form>
       </Content>
@@ -107,4 +87,4 @@ const Auth = ({ authCheck, setAuthCheck, setCurrentUser }) => {
   );
 };
 
-export default Auth;
+export default Login;
