@@ -10,7 +10,7 @@ import {
   Account,
   Image,
 } from "./Auth.styles";
-import LoginImage from "../images/login.jpeg";
+import LoginImage from "../images/login4.png";
 
 const Auth = ({ authCheck, setAuthCheck, setCurrentUser }) => {
   const [isSignUp, setIsSignUp] = useState(true);

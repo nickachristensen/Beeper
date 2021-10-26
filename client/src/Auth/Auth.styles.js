@@ -11,26 +11,27 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  
   padding: 2rem;
-  background: linear-gradient(#E4E5F1, #383A6B);
+  background: linear-gradient(#e4e5f1, #383a6b);
 `;
 
 export const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  background-color: transparent;
   padding: 2rem;
   box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
   border-radius: 5px;
   transition: 0.8s ease;
-  background: #fff;
+  
   p {
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #05245a;
     font-weight: 900;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -42,7 +43,7 @@ export const Input = styled.div`
 
   label {
     margin-bottom: 0.45rem;
-    color: rgb(61, 79, 88);
+    color: #ffffff;
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 0.7px;
@@ -79,8 +80,8 @@ export const Button = styled.div`
 
   button {
     border-radius: 4px;
-    background: #005fff;
-    border: 1px solid #005fff;
+    background: #ef8181;
+    border: 1px solid #E63F3F;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
@@ -91,7 +92,7 @@ export const Button = styled.div`
   }
 
   button:hover {
-    background: #0066ff;
+    background: #e53838;
   }
 `;
 
@@ -120,7 +121,8 @@ export const Image = styled.div`
   box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.05);
 
   img {
-    width: 100%;
+    width: clamp(450px, 100%, 1200px);
     height: 100%;
+    object-fit: cover;
   }
 `;
