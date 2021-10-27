@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CreateMeov from "../CreateMeow";
 
 // Styles
 import { Wrapper, Content, LogoImg } from "./Navbar.styles";
@@ -11,6 +12,7 @@ const Navbar = ({ handleLogout }) => (
       <LogoImg src={catLogo} alt="catlogo" />
     </Content>
     <Content>
+      <CreateMeov />
       <p>PROFILE</p>
       <p onClick={handleLogout}>LOGOUT</p>
     </Content>

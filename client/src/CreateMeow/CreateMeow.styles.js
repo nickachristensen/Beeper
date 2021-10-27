@@ -1,19 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
 `;
 
 export const Content = styled.div`
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  
-  padding: 2rem;
-  background: linear-gradient(#e4e5f1, #383a6b);
 `;
 
 export const Form = styled.div`
@@ -74,10 +64,9 @@ export const Input = styled.div`
 `;
 
 export const Button = styled.div`
-  margin-top: 2rem;
   display: flex;
   justify-content: flex-start;
-
+  
   button {
     border-radius: 4px;
     background: #ef8181;
