@@ -5,7 +5,7 @@ import Modal from "../Modal";
 //Style
 import { Wrapper, Body, Header, Button, Content } from "./Post.styles";
 
-const Post = ({ post, onDelete }) => {
+const Post = ({ post, onDelete, toggle, setToggle }) => {
   const { content, user } = post;
   const [isOpen, setOpen] = useState(false);
 
@@ -14,6 +14,7 @@ const Post = ({ post, onDelete }) => {
     fetch(`posts/${post.id}`, {
         method: "DELETE"
     })
+    .then((res) => { res.json() }).then(res => window.location.reload());
 }
   return (
     <Wrapper>
