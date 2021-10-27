@@ -13,6 +13,10 @@ const CreateMeow = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState([]);
 
+  function handleReset() {
+    setContent([]);
+  }
+
   function handleCreate(event) {
     event.preventDefault();
     fetch(`/posts`, {
@@ -26,6 +30,7 @@ const CreateMeow = () => {
       if (res.ok) {
         res.json().then((data) => {
           setContent(data);
+          setContent([]);
         });
       } else {
         res.json().then((errors) => {
