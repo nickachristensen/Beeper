@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import CreateMeow from "../CreateMeow";
 import Modal from "../Modal"; 
 
 // Styles
