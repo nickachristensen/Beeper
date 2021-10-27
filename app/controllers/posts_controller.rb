@@ -10,9 +10,11 @@ class PostsController < ApplicationController
   end
 
   def create
+    byebug
     @post = current_user.posts.build(post_params)
     if @post.save
       render json: @post, status: :created
+      
     else
       render json: @post.errors, status: :unprocessable_entity
     end
