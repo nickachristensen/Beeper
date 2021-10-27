@@ -16,9 +16,14 @@ const PostContainer = () => {
   useEffect(() => {
     getPostList();
   }, []);
+
+  function handleDelete(deletedPost) {
+    const updatedPosts = posts.filter(item => item.id !== deletedPost.id)
+    setPosts(updatedPosts)
+  }
   
   const postList = posts.map((post) => {
-    return <Post key={post.id} post={post} />;
+    return <Post key={post.id} post={post} onDelete={handleDelete}/>;
   });
 
   return (

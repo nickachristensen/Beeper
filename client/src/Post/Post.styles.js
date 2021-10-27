@@ -26,6 +26,22 @@ export const Body = styled.div`
   }
 `;
 
+export const Content = styled.div`
+  display: flex;
+  max-width: 1280px;
+  padding-left: 200px;
+  margin: 0 auto;
+  p{
+      padding: 8px;
+      color: black;
+      padding-top: 25px;
+  }
+  p:hover {
+    cursor: pointer;
+    border-bottom: 2px solid white;
+  }
+`;
+
 export const Header = styled.div``;
 
 export const Button = styled.div``;
