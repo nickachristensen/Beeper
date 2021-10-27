@@ -64,9 +64,6 @@ export const Input = styled.div`
 `;
 
 export const Button = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  
   button {
     border-radius: 4px;
     background: #ef8181;

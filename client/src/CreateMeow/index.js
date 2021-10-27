@@ -15,8 +15,9 @@ const CreateMeow = () => {
 
   function handleCreate(event) {
     event.preventDefault();
-    fetch(`http://localhost:3000/posts`, {
+    fetch(`/posts`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },

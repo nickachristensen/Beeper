@@ -16,6 +16,7 @@ export const Content = styled.div`
   p{
       padding: 8px;
       color: white;
+      padding-top: 25px;
   }
   p:hover {
     cursor: pointer;
