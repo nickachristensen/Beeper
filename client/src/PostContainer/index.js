@@ -17,6 +17,7 @@ const PostContainer = () => {
     getPostList();
   }, []);
 
+  
   function handleDelete(deletedPost) {
     const updatedPosts = posts.filter(item => item.id !== deletedPost.id)
     setPosts(updatedPosts)

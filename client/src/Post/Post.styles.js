@@ -10,11 +10,12 @@ export const Wrapper = styled.div`
   padding: 10px;
 `;
 
-export const Avatar = styled.div``;
+export const Avatar = styled.div`
+  position: fixed;
+`;
 
 export const Body = styled.div`
   display: flex;
-  flex: 1;
   padding: 10px;
   img {
     border-radius: 20px;
@@ -31,10 +32,10 @@ export const Content = styled.div`
   max-width: 1280px;
   padding-left: 200px;
   margin: 0 auto;
-  p{
-      padding: 8px;
-      color: black;
-      padding-top: 25px;
+  p {
+    padding: 8px;
+    color: black;
+    padding-top: 25px;
   }
   p:hover {
     cursor: pointer;

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
-    render json: @posts, status: :ok
+    render json: @posts.order(created_at: :desc), status: :ok
   end
 
   def show
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    head :no_content
   end
 
   private

@@ -22,7 +22,7 @@ const Navbar = ({ handleLogout }) => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          setContent(data);
+          setContent([...content, data]);
           setContent([]);
         });
       } else {
