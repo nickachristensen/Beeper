@@ -24,6 +24,7 @@ const Navbar = ({ handleLogout }) => {
         res.json().then((data) => {
           setContent(data);
           setContent([]);
+          window.location.reload();
         });
       } else {
         res.json().then((errors) => {
