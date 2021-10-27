@@ -3,6 +3,7 @@ import Post from "../Post";
 
 const PostContainer = () => {
   const [posts, setPosts] = useState([]);
+  const [toggle, setToggle] = useState(true)
 
   const getPostList = async () => {
     fetch("/posts")
@@ -15,7 +16,7 @@ const PostContainer = () => {
 
   useEffect(() => {
     getPostList();
-  }, []);
+  }, [toggle]);
 
   function handleDelete(deletedPost) {
     const updatedPosts = posts.filter(item => item.id !== deletedPost.id)
@@ -23,7 +24,7 @@ const PostContainer = () => {
   }
   
   const postList = posts.map((post) => {
-    return <Post key={post.id} post={post} onDelete={handleDelete}/>;
+    return <Post key={post.id} post={post} onDelete={handleDelete} setToggle = {setToggle}/>;
   });
 
   return (
