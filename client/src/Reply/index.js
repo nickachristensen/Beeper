@@ -3,7 +3,7 @@ import React, { useState } from "react";
 //Style
 import { Button, Form, Input } from "./Reply.styles";
 
-function Reply({ reply, onDelete, toggle, setToggle }) {
+function Reply({ post, reply, onDelete, toggle, setToggle }) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     message: reply.message,
@@ -42,7 +42,7 @@ function Reply({ reply, onDelete, toggle, setToggle }) {
   return (
     <>
       <div>
-        <h6>{reply.user.fullname}</h6>
+        
       </div>
       {isEditing ? (
         <Form>
@@ -63,7 +63,8 @@ function Reply({ reply, onDelete, toggle, setToggle }) {
         </Form>
       ) : (
         <>
-          <p>"{reply.message}"</p>
+            <h6>{post.user.fullname} Meowed:</h6>
+            <p>"{reply.message}"</p>
         </>
       )}
       <Button>

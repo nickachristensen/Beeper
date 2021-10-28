@@ -1,7 +1,13 @@
 class RepliesController < ApplicationController
+
   def index
-    @replies = Reply.all
-    render json: @replies, status: :ok
+    if params[:post]
+      post = Post.find(params[:post_id])
+      replies = post.replies
+    else
+      replies = Reply.all
+    end
+    render json: replies, include: :post
   end
 
   def show

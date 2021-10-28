@@ -39,6 +39,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
       onDelete={handleDelete}
       toggle={toggle}
       setToggle={setToggle}
+      post={post}
     />
   ));
 
@@ -107,13 +108,13 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
     });
   }
 
-  // useEffect(() => {
-  //   fetch(`/replies/${post.id}`)
-  //     .then((r) => r.json())
-  //     .then((replies) => {
-  //       setReplies(replies);
-  //     });
-  // }, [post, toggle]);
+  useEffect(() => {
+    fetch(`/posts/${post.id}/replies`)
+      .then((r) => r.json())
+      .then((replies) => {
+        setReplies(replies);
+      });
+  }, [post, toggle]);
 
   return (
     <>

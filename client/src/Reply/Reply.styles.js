@@ -7,7 +7,6 @@ export const Input = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-
   label {
     margin-bottom: 0.45rem;
     color: #000000;
@@ -16,7 +15,6 @@ export const Input = styled.div`
     letter-spacing: 0.7px;
     line-height: 1.2;
   }
-
   textarea {
     padding: 0.55rem 0.4rem;
     border: 1px solid rgb(184, 196, 194);
@@ -28,14 +26,12 @@ export const Input = styled.div`
     background: #fff;
     height: 70px;
   }
-
   textarea::placeholder {
     color: #b1b1b1;
     width: 100%;
     font-weight: unset;
     font-family: Arial, Helvetica, sans-serif;
   }
-
   textarea:hover {
     border-color: #dcdddd;
   }
@@ -49,7 +45,6 @@ export const Button = styled.div`
     border: 1px solid #4caf50;
     border-radius: 3px;
     filter: drop-shadow(0px 1px 1px #000);
-
     :hover {
       background-color: #4caf50;
       color: white;
