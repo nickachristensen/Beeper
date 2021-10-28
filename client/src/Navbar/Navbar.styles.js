@@ -10,13 +10,14 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   display: flex;
+  flex-direction: row;
   max-width: 1280px;
-  padding-left: 200px;
-  margin: 0 auto;
-  p{
-      padding: 8px;
-      color: white;
-      padding-top: 25px;
+  margin: 2px;
+  p {
+    padding: 8px;
+    color: white;
+    font-size: 17px;
+    
   }
   p:hover {
     cursor: pointer;
@@ -24,10 +25,9 @@ export const Content = styled.div`
   }
 `;
 
-
 export const LogoImg = styled.img`
-  width: 130px;
-  height: 80px;
+  width: 120px;
+  height: 100px;
 
   @media screen and (max-width: 400px) {
     width: 150px;
@@ -43,7 +43,7 @@ export const Form = styled.div`
   box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
   border-radius: 5px;
   transition: 0.8s ease;
-  
+
   p {
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
@@ -95,7 +95,8 @@ export const Button = styled.div`
   button {
     border-radius: 4px;
     background: #ef8181;
-    border: 1px solid #E63F3F;
+    border: 1px solid #e63f3f;
+    filter: drop-shadow(0px 2px 2px #000);
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
@@ -105,6 +106,7 @@ export const Button = styled.div`
     transition: 0.3s ease;
     letter-spacing: 0.7px;
     margin-top: 1rem;
+    box-shadow: ;
   }
 
   button:hover {

@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    render json: @post, status: :ok
+    render json: @post, include: ["created_at"], status: :ok
   end
 
   def create

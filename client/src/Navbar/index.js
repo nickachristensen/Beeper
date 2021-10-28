@@ -11,7 +11,7 @@ import {
   Input,
   Button,
 } from "./Navbar.styles";
-import catLogo from "../images/catlogo.png";
+import catLogo from "../images/Meow.png";
 
 const Navbar = ({ handleLogout }) => {
   const [isOpen, setOpen] = useState(false);
