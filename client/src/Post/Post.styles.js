@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+margin: 15px;
   width: 500px;
   height: 100%;
   flex-direction: column;
@@ -68,6 +69,7 @@ export const Header = styled.div`
   align-items: center;
   padding-right: 8px;
   padding-left: 8px;
+  padding-bottom: 5px;
   p {
     font-family: "Courier New";
   }
