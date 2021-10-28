@@ -11,7 +11,7 @@ import PostContainer from "../PostContainer";
 const Home = ({ handleLogout }) => {
   return (
     <div>
-      <Navbar handleLogout={handleLogout} />
+      <Navbar handleLogout={handleLogout}/>
       <Wrapper>
         <Content>
           <PostContainer />

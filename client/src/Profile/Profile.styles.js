@@ -19,6 +19,6 @@ export const Header = styled.div`
   padding-left: 8px;
   p {
     font-family: "Courier New";
-    color: red;
+    color: black;
   }
 `;

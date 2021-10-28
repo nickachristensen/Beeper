@@ -8,11 +8,10 @@ const ProfileContainer = () => {
   const [toggle, setToggle] = useState(true);
 
   const getProfileList = async () => {
-    fetch("/users/{user.id}")
+    fetch("/me")
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
-        setPosts(data);
+        setPosts(data.posts);
       });
   };
 
