@@ -9,8 +9,12 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
   const { content, user } = post;
   const [isOpen, setOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [isReplying, setIsReplying] = useState(false);
   const [formData, setFormData] = useState ({
     content: post.content,
+});
+const [replyFormData, setReplyFormData] = useState ({
+  message: '',
 });
 
   function handleDelete() {
@@ -38,6 +42,37 @@ function handleEdit(event) {
       .then(setToggle(!toggle));
       setIsEditing((isEditing) => !isEditing);
       window.location.reload();
+  }
+
+  function handleReply(event) {
+    event.preventDefault()
+
+      const newReply = {
+        message: replyFormData.message,
+        user_id: user.id,
+        post_id: post.id,
+      };
+
+      fetch(`/replies`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newReply),
+      })
+        .then((r) => r.json())
+        .then(setToggle(!toggle));
+        setIsReplying((isReplying) => !isReplying);
+        setFormData({
+          message:"",
+      });
+    }
+
+    function handleReplyChange(event) {
+      setReplyFormData({
+          ...replyFormData,
+          [event.target.name]: event.target.value,
+      });
   }
 
   function handleChange(event) {
@@ -89,10 +124,30 @@ function handleEdit(event) {
           <Header>
             <p>{content}</p>
           </Header>
+        }          
+        {isReplying ?
+            <Form>
+              <form onSubmit = {handleReply}>
+                <Input>
+                  <label htmlFor="replypost">REPLY TO POST:</label>
+                    <input 
+                      type = "text" 
+                      value={replyFormData.message} 
+                      onChange={handleReplyChange} 
+                      name="message" />
+                </Input>
+                <Button>
+                  <button type="submit">✅</button>
+                </Button>
+                </form>
+            </Form>
+        :
+          <>  
+          </>
         }
         </Content>
       <Button>
-        <button>💬</button>
+        <button onClick = {() => setIsReplying((isReplying) => !isReplying)}>💬</button>
         <button onClick = {() => setIsEditing((isEditing) => !isEditing)}>✏️</button>
         <button onClick = {handleDelete}>🗑️</button>
       </Button>

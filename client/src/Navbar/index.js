@@ -56,7 +56,7 @@ const Navbar = ({ handleLogout }) => {
           <Form>
             <form onSubmit={handleCreate}>
               <Input>
-                <label htmlFor="createmeow">#</label>
+                <label htmlFor="createmeow">Meow about it!</label>
                 <textarea
                   type="text"
                   value={content}
