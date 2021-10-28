@@ -160,7 +160,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
                 <form onSubmit={handleReply}>
                   <Input>
                     <label htmlFor="replypost">REPLY TO POST:</label>
-                    <input
+                    <textarea
                       type="text"
                       value={replyFormData.message}
                       onChange={handleReplyChange}

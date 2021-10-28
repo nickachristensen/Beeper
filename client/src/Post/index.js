@@ -47,10 +47,8 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
     fetch(`posts/${post.id}`, {
       method: "DELETE",
     })
-      .then((res) => {
-        res.json();
-      })
-      .then((res) => window.location.reload());
+      .then((res) => res.json())
+      .then(window.location.reload());
   }
 
   function handleEdit(event) {
@@ -161,7 +159,28 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
             ) : (
               <Header2>
                 <p>{content}</p>
+                <p>{postReplies}</p>
               </Header2>
+            )}
+            {isReplying ? (
+              <Form>
+                <form onSubmit={handleReply}>
+                  <Input>
+                    <label htmlFor="replypost">REPLY TO POST:</label>
+                    <textarea
+                      type="text"
+                      value={replyFormData.message}
+                      onChange={handleReplyChange}
+                      name="message"
+                    />
+                  </Input>
+                  <Button>
+                    <button type="submit">✅</button>
+                  </Button>
+                </form>
+              </Form>
+            ) : (
+              <></>
             )}
           </Content2>
           <Button>
