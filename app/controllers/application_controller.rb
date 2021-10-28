@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
- 
+
+  def created_at
+    attributes["created_at"].strftime("%Y-%m-%d %H:%M")
+  end
+
   private
 
   def current_user

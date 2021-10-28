@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Modal from "../Modal"; 
+import Modal from "../Modal";
 
 // Styles
-import { Wrapper, Content, LogoImg, Form, Input, Button } from "./Navbar.styles";
+import {
+  Wrapper,
+  Content,
+  LogoImg,
+  Form,
+  Input,
+  Button,
+} from "./Navbar.styles";
 import catLogo from "../images/catlogo.png";
 
 const Navbar = ({ handleLogout }) => {
@@ -34,36 +41,39 @@ const Navbar = ({ handleLogout }) => {
     });
   }
 
-return (
-
-  <Wrapper>
-    <Content>
-      <LogoImg src={catLogo} alt="catlogo" />
-    </Content>
-    <Content>
-    <button onClick={() => setOpen(isOpen => !isOpen)}>Post Meow!</button>
-    <Modal isOpen={isOpen} close={() => setOpen(false)}>
-      <Form>
-        <form onSubmit={handleCreate}>
-          <Input>
-            <label htmlFor="createmeow">CREATE MEOW:</label>
-            <input
-              type="text"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              name="content"
-              />
-          </Input>
-          <Button>
-            <button type="submit">✅</button>
-          </Button>
-        </form>
-      </Form>
-    </Modal>
-      <p>PROFILE</p>
-      <p onClick={handleLogout}>LOGOUT</p>
-    </Content>
-  </Wrapper>
-);
-}
+  return (
+    <Wrapper>
+      <Content>
+        <LogoImg src={catLogo} alt="catlogo" />
+      </Content>
+      <Content>
+        <Button>
+          <button onClick={() => setOpen((isOpen) => !isOpen)}>
+            Post Meow!
+          </button>
+        </Button>
+        <Modal isOpen={isOpen} close={() => setOpen(false)}>
+          <Form>
+            <form onSubmit={handleCreate}>
+              <Input>
+                <label htmlFor="createmeow">CREATE MEOW:</label>
+                <input
+                  type="text"
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  name="content"
+                />
+              </Input>
+              <Button>
+                <button type="submit">MEOW!</button>
+              </Button>
+            </form>
+          </Form>
+        </Modal>
+        <p>PROFILE</p>
+        <p onClick={handleLogout}>LOGOUT</p>
+      </Content>
+    </Wrapper>
+  );
+};
 export default Navbar;

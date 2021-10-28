@@ -7,5 +7,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  padding: 0 600px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 `;
