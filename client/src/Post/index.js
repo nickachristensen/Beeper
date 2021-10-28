@@ -99,6 +99,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
     setFormData({
       message: "",
     });
+    window.location.reload();
   }
 
   function handleReplyChange(event) {
