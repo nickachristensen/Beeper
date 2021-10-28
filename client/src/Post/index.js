@@ -92,9 +92,9 @@ function handleEdit(event) {
         }
         </Content>
       <Button>
-        <button>Reply</button>
-        <button onClick = {() => setIsEditing((isEditing) => !isEditing)}>Edit</button>
-        <button onClick = {handleDelete}>Delete</button>
+        <button>💬</button>
+        <button onClick = {() => setIsEditing((isEditing) => !isEditing)}>✏️</button>
+        <button onClick = {handleDelete}>🗑️</button>
       </Button>
       </Modal>
     </Wrapper>
