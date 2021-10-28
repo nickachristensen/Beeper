@@ -1,5 +1,5 @@
 import Home from "./Home";
-import { Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function AuthenticatedApp({ currentUser, setCurrentUser }) {
   const history = useHistory();

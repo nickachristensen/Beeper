@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import Modal from "../Modal";
 import ModalP from "../ModalP";
 import ProfileContainer from "../ProfileContainer";
@@ -43,7 +42,6 @@ const Navbar = ({ handleLogout }) => {
       }
     });
   }
-
   return (
     <Wrapper>
       <Content>

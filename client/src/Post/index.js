@@ -118,8 +118,10 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
   }, [post, toggle]);
 
   function handleReplyDelete(deletedReply) {
-    const updatedReplies = replies.filter(item => item.id !== deletedReply.id)
-    setReplies(updatedReplies)
+    const updatedReplies = replies.filter(
+      (item) => item.id !== deletedReply.id
+    );
+    setReplies(updatedReplies);
   }
 
   return (

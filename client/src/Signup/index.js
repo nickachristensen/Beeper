@@ -14,14 +14,9 @@ import {
 import LoginImage from "../images/login4.png";
 
 const Signup = ({ authCheck, setAuthCheck, setCurrentUser }) => {
-  const [isSignUp, setIsSignUp] = useState(true);
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  function switchMode() {
-    setIsSignUp(!isSignUp);
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();

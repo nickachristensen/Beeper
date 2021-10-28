@@ -21,7 +21,7 @@ const Modal = ({ isOpen, close, children }) => {
         return () => {
             window.removeEventListener("click", listener);
         }
-    }, [isOpen]);
+    }, [isOpen, close]);
 
     if (!isOpen) return null;
     return <Background>

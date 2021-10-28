@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // Styles
 import { Wrapper, Content, Body, Header, Avatar } from "./Profile.styles";

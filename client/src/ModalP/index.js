@@ -21,7 +21,7 @@ const Modal = ({ isProfile, close, children }) => {
         return () => {
             window.removeEventListener("click", listener);
         }
-    }, [isProfile]);
+    }, [isProfile, close]);
 
     if (!isProfile) return null;
     return <Background>
