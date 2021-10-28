@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Avatar } from "@material-ui/core";
 import Modal from "../Modal";
 import Reply from "../Reply";
 
@@ -11,11 +12,6 @@ import {
   Content,
   Form,
   Input,
-  Wrapper2,
-  Content2,
-  Body2,
-  Avatar,
-  Header2,
 } from "./Post.styles";
 
 const Post = ({ post, onDelete, toggle, setToggle }) => {
@@ -27,7 +23,6 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
   const [formData, setFormData] = useState({
     content: post.content,
   });
-
   const [replyFormData, setReplyFormData] = useState({
     message: "",
   });
@@ -47,10 +42,8 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
     fetch(`posts/${post.id}`, {
       method: "DELETE",
     })
-      .then((res) => {
-        res.json();
-      })
-      .then((res) => window.location.reload());
+      .then((res) => res.json())
+      .then(window.location.reload());
   }
 
   function handleEdit(event) {
@@ -69,13 +62,6 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
       .then(setToggle(!toggle));
     setIsEditing((isEditing) => !isEditing);
     window.location.reload();
-  }
-
-  function handleChange(event) {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
   }
 
   function handleReply(event) {
@@ -102,13 +88,6 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
     });
   }
 
-  function handleReplyChange(event) {
-    setReplyFormData({
-      ...replyFormData,
-      [event.target.name]: event.target.value,
-    });
-  }
-
   // useEffect(() => {
   //   fetch(`/replies/${post.id}`)
   //     .then((r) => r.json())
@@ -116,6 +95,20 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
   //       setReplies(replies);
   //     });
   // }, [post, toggle]);
+
+  function handleReplyChange(event) {
+    setReplyFormData({
+      ...replyFormData,
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  function handleChange(event) {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  }
 
   return (
     <>
@@ -126,27 +119,25 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
             <h3>
               {user.fullname} | {user.username}
             </h3>
+            <Header>
+              <p>{content}</p>
+            </Header>
           </Body>
-          <Header>
-            <p>{content}</p>
-          </Header>
         </Content>
-      </Wrapper>
-      <Wrapper2>
         <Modal isOpen={isOpen} close={() => setOpen(false)}>
-          <Content2>
-            <Body2>
+          <Content>
+            <Body>
               <Avatar src="https://www.wpbeginner.com/wp-content/uploads/2012/08/gravatarlogo.jpg" />
               <h3>
                 {user.fullname} | {user.username}
               </h3>
-            </Body2>
+            </Body>
             {isEditing ? (
               <Form>
                 <form onSubmit={handleEdit}>
                   <Input>
                     <label htmlFor="editpost">EDIT POST:</label>
-                    <textarea
+                    <input
                       type="text"
                       value={formData.content}
                       onChange={handleChange}
@@ -159,11 +150,32 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
                 </form>
               </Form>
             ) : (
-              <Header2>
+              <Header>
                 <p>{content}</p>
-              </Header2>
+                <p>{postReplies}</p>
+              </Header>
             )}
-          </Content2>
+            {isReplying ? (
+              <Form>
+                <form onSubmit={handleReply}>
+                  <Input>
+                    <label htmlFor="replypost">REPLY TO POST:</label>
+                    <input
+                      type="text"
+                      value={replyFormData.message}
+                      onChange={handleReplyChange}
+                      name="message"
+                    />
+                  </Input>
+                  <Button>
+                    <button type="submit">✅</button>
+                  </Button>
+                </form>
+              </Form>
+            ) : (
+              <></>
+            )}
+          </Content>
           <Button>
             <button onClick={() => setIsReplying((isReplying) => !isReplying)}>
               💬
@@ -174,7 +186,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
             <button onClick={handleDelete}>🗑️</button>
           </Button>
         </Modal>
-      </Wrapper2>
+      </Wrapper>
     </>
   );
 };
