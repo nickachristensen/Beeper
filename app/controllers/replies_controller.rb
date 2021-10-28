@@ -1,5 +1,11 @@
 class RepliesController < ApplicationController
 
+
+  def index
+    replies = Reply.all
+    render json: replies
+  end
+  
   def index
     if params[:post]
       post = Post.find(params[:post_id])

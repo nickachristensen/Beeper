@@ -14,6 +14,7 @@ function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
     fetch(`/replies/${reply.id}`, {
       method: "DELETE",
     });
+    window.location.reload();
   }
 
   function handleEdit(event) {
@@ -64,7 +65,7 @@ function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
         </Form>
       ) : (
         <>
-            <h6>{post.user.fullname} Meowed:</h6>
+            <h6>{reply.user} Meowed:</h6>
             <p>"{reply.message}"</p>
         </>
       )}

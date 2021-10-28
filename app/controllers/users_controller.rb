@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     users = User.all
     render json: users
   end
-
+  
   def destroy
     user = User.find_by(id: params[:id])
     if user

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :replies
-  resources :posts do
-    resources :replies, :user
+  resources :replies do
+    resources :user
   end
+
+  resources :posts do
+    resources :replies
+  end
+  
   resources :users
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

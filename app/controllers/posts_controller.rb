@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    render json: @post, serializer: PostReplySerializer, status: :ok
+    render json: @post, status: :ok
   end
 
   def create
