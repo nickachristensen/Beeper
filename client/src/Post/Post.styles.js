@@ -45,3 +45,7 @@ export const Content = styled.div`
 export const Header = styled.div``;
 
 export const Button = styled.div``;
+
+export const Form = styled.div``;
+
+export const Input = styled.div``;
