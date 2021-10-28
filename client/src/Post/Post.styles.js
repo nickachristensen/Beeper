@@ -10,6 +10,16 @@ export const Wrapper = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   transition: all 0.3s ease;
+  animation: animateHeroImage 1s;
+
+  @keyframes animateHeroImage {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
@@ -116,8 +126,7 @@ export const Button = styled.div`
   }
 `;
 
-export const Form = styled.div`
-`;
+export const Form = styled.div``;
 
 export const Input = styled.div`
   display: flex;
