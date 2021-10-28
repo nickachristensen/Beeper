@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar } from "@material-ui/core";
 import Modal from "../Modal";
+import Reply from "../Reply";
 
 //Style
 import { Wrapper, Body, Header, Button, Content, Form, Input } from "./Post.styles";
@@ -10,12 +11,16 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
   const [isOpen, setOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isReplying, setIsReplying] = useState(false);
+  const [replies, setReplies] = useState([]);
   const [formData, setFormData] = useState ({
     content: post.content,
 });
 const [replyFormData, setReplyFormData] = useState ({
   message: '',
 });
+
+const postReplies = replies.map(item => 
+  <Reply key={item.id} reply={item} onDelete={handleDelete} toggle = {toggle} setToggle = {setToggle}/>)
 
   function handleDelete() {
     onDelete(post)
@@ -68,6 +73,14 @@ function handleEdit(event) {
       });
     }
 
+    useEffect(() => {
+      fetch(`/replies/${post.id}`)
+        .then((r) => r.json())
+        .then((replies) => {
+          setReplies(replies);
+        });
+    }, [post, toggle]);
+
     function handleReplyChange(event) {
       setReplyFormData({
           ...replyFormData,
@@ -93,6 +106,7 @@ function handleEdit(event) {
             </h3> 
         <Header>
           <p>{content}</p>
+          <p>{postReplies}</p>
         </Header>
         </Body> 
       </Content>
