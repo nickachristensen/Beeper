@@ -49,19 +49,21 @@ const Navbar = ({ handleLogout }) => {
       <Content>
         <Button>
           <button onClick={() => setOpen((isOpen) => !isOpen)}>
-            Post Meow!
+            Now Meow!
           </button>
         </Button>
         <Modal isOpen={isOpen} close={() => setOpen(false)}>
           <Form>
             <form onSubmit={handleCreate}>
               <Input>
-                <label htmlFor="createmeow">CREATE MEOW:</label>
-                <input
+                <label htmlFor="createmeow">#</label>
+                <textarea
                   type="text"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   name="content"
+                  wrap="soft"
+                  placeholder="What's happening?"
                 />
               </Input>
               <Button>

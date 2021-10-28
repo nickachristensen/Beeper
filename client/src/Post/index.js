@@ -68,7 +68,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
           <Body>
             <Avatar src="https://www.wpbeginner.com/wp-content/uploads/2012/08/gravatarlogo.jpg" />
             <h3>
-              {user.fullname} | {user.username}
+              {user.fullname} | @{user.username}
             </h3>
           </Body>
           <Header>
@@ -82,7 +82,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
             <Body2>
               <Avatar src="https://www.wpbeginner.com/wp-content/uploads/2012/08/gravatarlogo.jpg" />
               <h3>
-                {user.fullname} | {user.username}
+                {user.fullname} | @{user.username}
               </h3>
             </Body2>
             {isEditing ? (
@@ -90,7 +90,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
                 <form onSubmit={handleEdit}>
                   <Input>
                     <label htmlFor="editpost">EDIT POST:</label>
-                    <input
+                    <textarea
                       type="text"
                       value={formData.content}
                       onChange={handleChange}
@@ -98,7 +98,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
                     />
                   </Input>
                   <Button>
-                    <button type="submit">✅</button>
+                    <button type="submit">SAVE</button>
                   </Button>
                 </form>
               </Form>

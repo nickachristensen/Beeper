@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   padding: 0 20px;
-  background: #4da6d2;
+  background: linear-gradient(to bottom, #58385d, #565e84);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 `;
 
 export const Content = styled.div`
@@ -17,11 +18,11 @@ export const Content = styled.div`
     padding: 8px;
     color: white;
     font-size: 17px;
-    
   }
   p:hover {
     cursor: pointer;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #51f9b9;
+    color: #51f9b9;
   }
 `;
 
@@ -43,6 +44,8 @@ export const Form = styled.div`
   box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
   border-radius: 5px;
   transition: 0.8s ease;
+  width: 500px;
+  margin: 25px;
 
   p {
     font-size: 1.5rem;
@@ -68,7 +71,7 @@ export const Input = styled.div`
     line-height: 1.3;
   }
 
-  input {
+  textarea {
     padding: 0.55rem 0.4rem;
     border: 1px solid rgb(184, 196, 194);
     border-radius: 4px;
@@ -77,16 +80,18 @@ export const Input = styled.div`
     transition: all 150ms ease-in-out 0s;
     width: 85%;
     background: #fff;
+    margin: 10px;
+    height: 80px;
   }
 
-  input::placeholder {
+  textarea::placeholder {
     color: #b1b1b1;
     width: 100%;
     font-weight: unset;
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  input:hover {
+  textarea:hover {
     border-color: #dcdddd;
   }
 `;
@@ -94,8 +99,8 @@ export const Input = styled.div`
 export const Button = styled.div`
   button {
     border-radius: 4px;
-    background: #ef8181;
-    border: 1px solid #e63f3f;
+    background: #635263;
+    border: 1px solid #ffffff;
     filter: drop-shadow(0px 2px 2px #000);
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
@@ -106,10 +111,9 @@ export const Button = styled.div`
     transition: 0.3s ease;
     letter-spacing: 0.7px;
     margin-top: 1rem;
-    box-shadow: ;
   }
 
   button:hover {
-    background: #e53838;
+    background: #71a7c7;
   }
 `;
