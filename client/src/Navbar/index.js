@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../Modal";
+import ModalP from "../ModalP";
+import ProfileContainer from "../ProfileContainer";
 
 // Styles
 import {
@@ -16,6 +18,7 @@ import catLogo from "../images/Meow.png";
 const Navbar = ({ handleLogout }) => {
   const [isOpen, setOpen] = useState(false);
   const [content, setContent] = useState([]);
+  const [isProfile, setIsProfile] = useState(false);
 
   function handleCreate(event) {
     event.preventDefault();
@@ -72,7 +75,10 @@ const Navbar = ({ handleLogout }) => {
             </form>
           </Form>
         </Modal>
-        <p>PROFILE</p>
+        <p onClick={() => setIsProfile((isOpen) => !isOpen)}>PROFILE</p>
+        <ModalP isProfile={isProfile} close={() => setIsProfile(false)}>
+          <ProfileContainer />
+        </ModalP>
         <p onClick={handleLogout}>LOGOUT</p>
       </Content>
     </Wrapper>

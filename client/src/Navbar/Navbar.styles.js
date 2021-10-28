@@ -14,6 +14,7 @@ export const Content = styled.div`
   flex-direction: row;
   max-width: 1280px;
   margin: 2px;
+  
   p {
     padding: 8px;
     color: white;

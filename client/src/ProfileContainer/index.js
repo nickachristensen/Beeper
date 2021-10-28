@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Post from "../Post";
 
-const PostContainer = () => {
+//Component
+import Profile from "../Profile";
+
+const ProfileContainer = () => {
   const [posts, setPosts] = useState([]);
   const [toggle, setToggle] = useState(true);
 
-  const getPostList = async () => {
-    fetch("/posts/")
+  const getProfileList = async () => {
+    fetch("/users/{user.id}")
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
@@ -15,7 +17,7 @@ const PostContainer = () => {
   };
 
   useEffect(() => {
-    getPostList();
+    getProfileList();
   }, [toggle]);
 
   function handleDelete(deletedPost) {
@@ -25,7 +27,7 @@ const PostContainer = () => {
 
   const postList = posts.map((post) => {
     return (
-      <Post
+      <Profile
         key={post.id}
         post={post}
         onDelete={handleDelete}
@@ -41,4 +43,4 @@ const PostContainer = () => {
   );
 };
 
-export default PostContainer;
+export default ProfileContainer;
