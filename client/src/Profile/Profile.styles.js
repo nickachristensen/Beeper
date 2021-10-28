@@ -17,7 +17,7 @@ export const Header = styled.div`
   align-items: center;
   padding-right: 8px;
   padding-left: 8px;
-  p {
+  em {
     font-family: "Courier New";
     color: black;
   }

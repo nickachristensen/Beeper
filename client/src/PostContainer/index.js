@@ -9,7 +9,6 @@ const PostContainer = () => {
     fetch("/posts/")
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         setPosts(data);
       });
   };
