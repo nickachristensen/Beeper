@@ -1,0 +1,13 @@
+.copywrite {
+  background-color: #512b51;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.copywrite > em {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  margin: 0;
+}

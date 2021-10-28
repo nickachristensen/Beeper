@@ -91,7 +91,7 @@ const Signup = ({ authCheck, setAuthCheck, setCurrentUser }) => {
           </form>
           <Account>
             <p>Already have an account?</p>
-            <Link to="/login">Log In</Link>
+            <Link to="/login"><em>Log In</em></Link>
           </Account>
         </Form>
       </Content>

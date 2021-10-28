@@ -12,6 +12,7 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: center;
 
+
   padding: 2rem;
   background: linear-gradient(#e4e5f1, #383a6b);
 `;
@@ -105,7 +106,7 @@ export const Account = styled.div`
   margin-top: 0.2rem;
 
   p {
-    font-size: 14px;
+    font-size: 16px;
     color: #000;
     font-weight: 500;
   }
@@ -114,6 +115,7 @@ export const Account = styled.div`
     color: #05245a;
     cursor: pointer;
     font-weight: 700;
+    text-decoration: none;
   }
 `;
 
