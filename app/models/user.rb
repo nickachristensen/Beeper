@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
-  has_many :replies, dependent: :destroy
+  has_many :replies
   has_many :created_posts, class_name: 'Post'
 
   # validates :username, presence: true, uniqueness: true

@@ -36,7 +36,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
     <Reply
       key={item.id}
       reply={item}
-      onDelete={handleDelete}
+      onReplyDelete={handleReplyDelete}
       toggle={toggle}
       setToggle={setToggle}
       post={post}
@@ -116,6 +116,11 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
         setReplies(replies);
       });
   }, [post, toggle]);
+
+  function handleReplyDelete(deletedReply) {
+    const updatedReplies = replies.filter(item => item.id !== deletedReply.id)
+    setReplies(updatedReplies)
+  }
 
   return (
     <>

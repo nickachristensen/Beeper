@@ -3,14 +3,14 @@ import React, { useState } from "react";
 //Style
 import { Button, Form, Input } from "./Reply.styles";
 
-function Reply({ post, reply, onDelete, toggle, setToggle }) {
+function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     message: reply.message,
   });
 
   function handleDelete() {
-    onDelete(reply);
+    onReplyDelete(reply);
     fetch(`/reply/${reply.id}`, {
       method: "DELETE",
     });
@@ -31,6 +31,7 @@ function Reply({ post, reply, onDelete, toggle, setToggle }) {
       .then((r) => r.json())
       .then(setToggle(!toggle));
     setIsEditing((isEditing) => !isEditing);
+    window.location.reload();
   }
   
   function handleChange(event) {
