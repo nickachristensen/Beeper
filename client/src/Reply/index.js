@@ -11,7 +11,7 @@ function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
 
   function handleDelete() {
     onReplyDelete(reply);
-    fetch(`/reply/${reply.id}`, {
+    fetch(`/replies/${reply.id}`, {
       method: "DELETE",
     });
   }
