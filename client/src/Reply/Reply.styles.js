@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const Form = styled.div`
-`;
+export const Form = styled.div``;
 
 export const Input = styled.div`
   display: flex;
+
   flex-direction: column;
   position: relative;
   label {
@@ -34,6 +34,13 @@ export const Input = styled.div`
   }
   textarea:hover {
     border-color: #dcdddd;
+  }
+`;
+
+export const Content = styled.div`
+  p {
+    inline-size: 100%;
+    overflow-wrap: break-word;
   }
 `;
 

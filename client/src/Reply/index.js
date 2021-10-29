@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //Style
-import { Button, Form, Input } from "./Reply.styles";
+import { Button, Form, Input, Content } from "./Reply.styles";
 
 function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -43,15 +43,12 @@ function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
   }
   return (
     <>
-      <div>
-        
-      </div>
       {isEditing ? (
         <Form>
           <form onSubmit={handleEdit}>
             <Input>
               <label htmlFor="editreply">EDIT REPLY:</label>
-              <input
+              <textarea
                 type="text"
                 value={formData.message}
                 onChange={handleChange}
@@ -64,10 +61,10 @@ function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
           </form>
         </Form>
       ) : (
-        <>
+        <Content>
             <h6>{reply.user} Meowed:</h6>
             <p>"{reply.message}"</p>
-        </>
+        </Content>
       )}
       <Button>
         <button onClick={() => setIsEditing((isEditing) => !isEditing)}>

@@ -13,7 +13,6 @@ const ProfileContainer = () => {
     fetch("/me")
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data.fullname);
         setPosts(data.posts);
         setName(data.fullname);
         setUsername(data.username);
@@ -28,7 +27,7 @@ const ProfileContainer = () => {
     const updatedPosts = posts.filter((item) => item.id !== deletedPost.id);
     setPosts(updatedPosts);
   }
-  console.log(posts);
+ 
 
   const postList = posts.map((post) => {
     return (

@@ -117,7 +117,7 @@ export const Header2 = styled.div`
   align-items: center;
   padding-right: 8px;
   padding-left: 8px;
-  p {
+  span {
     font-family: "Courier New";
   }
 `;

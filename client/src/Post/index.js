@@ -116,7 +116,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
         setReplies(replies);
       });
   }, [post, toggle]);
-  console.log(replies);
+  
 
   function handleReplyDelete(deletedReply) {
     const updatedReplies = replies.filter(
@@ -124,6 +124,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
     );
     setReplies(updatedReplies);
   }
+  
 
   return (
     <>
@@ -169,8 +170,8 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
               </Form>
             ) : (
               <Header2>
-                <p>{content}</p>
-                <p>{postReplies}</p>
+                <span>{content}</span>
+                <span>{postReplies}</span>
               </Header2>
             )}
             {isReplying ? (
