@@ -3,12 +3,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import AuthenticatedApp from "./AuthenticatedApp";
 import UnauthenticatedApp from "./UnauthenticatedApp";
-import useBookSearch from "./useBookSearch";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [authCheck, setAuthCheck] = useState(false);
- 
 
   useEffect(() => {
     fetch("/me", {
