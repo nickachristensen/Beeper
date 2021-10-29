@@ -116,6 +116,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
         setReplies(replies);
       });
   }, [post, toggle]);
+  console.log(replies)
 
   function handleReplyDelete(deletedReply) {
     const updatedReplies = replies.filter(
