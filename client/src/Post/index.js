@@ -19,7 +19,7 @@ import {
 } from "./Post.styles";
 
 const Post = ({ post, onDelete, toggle, setToggle }) => {
-  const { content, user } = post;
+  const { content, user, created_at } = post;
   const [isOpen, setOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isReplying, setIsReplying] = useState(false);
@@ -116,7 +116,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
         setReplies(replies);
       });
   }, [post, toggle]);
-  console.log(replies)
+  console.log(replies);
 
   function handleReplyDelete(deletedReply) {
     const updatedReplies = replies.filter(
@@ -134,6 +134,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
             <h3>
               {user.fullname} | @{user.username}
             </h3>
+            <em>{created_at}</em>
           </Body>
           <Header>
             <p>{content}</p>

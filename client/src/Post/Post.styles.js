@@ -61,6 +61,16 @@ export const Body = styled.div`
     color: grey;
     color: #5f599b;
   }
+
+  em {
+    font-size: 14px;
+    font-family: "Courier New";
+    margin: 0;
+    padding-left: 5px;
+    padding-top: 9px;
+    color: grey;
+    color: #5f599b;
+  }
 `;
 
 export const Content = styled.div``;
