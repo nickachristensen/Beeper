@@ -12,7 +12,6 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: center;
 
-
   padding: 2rem;
   background: linear-gradient(#e4e5f1, #383a6b);
 `;
@@ -26,6 +25,10 @@ export const Form = styled.div`
   box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
   border-radius: 5px;
   transition: 0.8s ease;
+  border: 1px solid #5c80bc;
+  :hover {
+    box-shadow: 0 8px 16px 0 rgba(218, 31, 31, 0.685);
+  }
 
   p {
     font-size: 1.5rem;
@@ -33,6 +36,11 @@ export const Form = styled.div`
     color: #05245a;
     font-weight: 900;
     margin-bottom: 1rem;
+  }
+
+  span {
+    color: #4d5061;
+    font-family: Arial, Helvetica, sans-serif;
   }
 `;
 

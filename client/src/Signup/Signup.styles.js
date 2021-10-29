@@ -11,27 +11,33 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+
   padding: 2rem;
   background: linear-gradient(#e4e5f1, #383a6b);
 `;
 
 export const Form = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: transparent;
   padding: 2rem;
   box-shadow: 0px 1px 5px rgb(0 0 0 / 10%);
   border-radius: 5px;
   transition: 0.8s ease;
-  
+  border: 1px solid #5C80BC;
+  :hover {
+    box-shadow: 0 8px 16px 0 rgba(218, 31, 31, 0.685);
+  }
+
   p {
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
     color: #05245a;
     font-weight: 900;
     margin-bottom: 1rem;
+  }
+
+  span {
+    display: flex;
+    color: #4d5061;
+    font-family: Arial, Helvetica, sans-serif;
   }
 `;
 
@@ -81,7 +87,7 @@ export const Button = styled.div`
   button {
     border-radius: 4px;
     background: #ef8181;
-    border: 1px solid #E63F3F;
+    border: 1px solid #e63f3f;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;

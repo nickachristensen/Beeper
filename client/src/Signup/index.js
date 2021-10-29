@@ -17,6 +17,8 @@ const Signup = ({ authCheck, setAuthCheck, setCurrentUser }) => {
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorUsername, setErrorUsername] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,12 +38,15 @@ const Signup = ({ authCheck, setAuthCheck, setCurrentUser }) => {
           setCurrentUser(user);
         });
       } else {
-        res.json().then((errors) => {
-          console.error(errors);
+        res.json().then((data) => {
+          setErrorUsername(data.username);
+          setErrorPassword(data.password);
         });
       }
     });
   };
+
+  
 
   return (
     <Wrapper>
@@ -80,13 +85,17 @@ const Signup = ({ authCheck, setAuthCheck, setCurrentUser }) => {
                 required
               />
             </Input>
+            {errorUsername && <span>* Username {errorUsername}</span>}
+            {errorPassword && <span>* Password {errorPassword}</span>}
             <Button>
               <button type="submit">Sign Up</button>
             </Button>
           </form>
           <Account>
             <p>Already have an account?</p>
-            <Link to="/login"><em>Log In</em></Link>
+            <Link to="/login">
+              <em>Log In</em>
+            </Link>
           </Account>
         </Form>
       </Content>

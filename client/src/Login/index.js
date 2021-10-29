@@ -16,6 +16,7 @@ import LoginImage from "../images/login4.png";
 const Login = ({ authCheck, setAuthCheck, setCurrentUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,9 +32,7 @@ const Login = ({ authCheck, setAuthCheck, setCurrentUser }) => {
           setCurrentUser(user);
         });
       } else {
-        res.json().then((errors) => {
-          console.error(errors);
-        });
+        setError(true);
       }
     });
   };
@@ -65,13 +64,16 @@ const Login = ({ authCheck, setAuthCheck, setCurrentUser }) => {
                 required
               />
             </Input>
+            <span>{error ? "* Invalid username or password!" : null}</span>
             <Button>
               <button type="submit">Sign In</button>
             </Button>
           </form>
           <Account>
             <p>Don't have an account?</p>
-            <Link to="/signup"><em>Sign Up</em></Link>
+            <Link to="/signup">
+              <em>Sign Up</em>
+            </Link>
           </Account>
         </Form>
       </Content>
