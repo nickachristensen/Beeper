@@ -132,7 +132,7 @@ const Post = ({ post, onDelete, toggle, setToggle }) => {
           <Body>
             <Avatar src="https://www.wpbeginner.com/wp-content/uploads/2012/08/gravatarlogo.jpg" />
             <h3>
-              {user.fullname} | {user.username}
+              {user.fullname} | @{user.username}
             </h3>
           </Body>
           <Header>
