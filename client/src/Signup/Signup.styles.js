@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 600px) {
+    max-height: 500px;
+  }
 `;
 
 export const Content = styled.div`
@@ -132,5 +136,9 @@ export const Image = styled.div`
     width: clamp(450px, 100%, 1200px);
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
   }
 `;
