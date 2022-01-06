@@ -137,4 +137,9 @@ export const Image = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+
 `;
