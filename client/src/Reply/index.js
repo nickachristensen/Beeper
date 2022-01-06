@@ -71,6 +71,7 @@ function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
           ✏️
         </button>
         <button onClick={handleDelete}>🗑️</button>
+        <button onClick={() => console.log(reply)}>Test</button>
       </Button>
     </>
   );

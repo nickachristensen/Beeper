@@ -1,15 +1,16 @@
 class RepliesController < ApplicationController
 
-
   # def index
   #   replies = Reply.all
   #   render json: replies
   # end
-  
+
   def index
     if params[:post_id]
       replies = Post.find_by(id: params[:post_id]).replies
-    else
+    elsif params[:post_id]
+      user = Post.find_by(id: params[:post_id]).user
+    else 
       replies = Reply.all
     end
     render json: replies, include: :post
