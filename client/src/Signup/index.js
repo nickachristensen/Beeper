@@ -52,8 +52,8 @@ const Signup = ({ authCheck, setAuthCheck, setCurrentUser }) => {
     <Wrapper>
       <Content>
         <Form>
-          <h2>Welcome to Meower!</h2>
-          <em>Sign up to meow!</em>
+          <h2>Welcome to Beeper!</h2>
+          <em>Sign up to beep!</em>
           <form onSubmit={handleSubmit}>
             <Input>
               <label htmlFor="fullname">FULLNAME:</label>

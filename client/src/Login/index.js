@@ -41,8 +41,8 @@ const Login = ({ authCheck, setAuthCheck, setCurrentUser }) => {
     <Wrapper>
       <Content>
         <Form>
-          <h2>Welcome to Meower!</h2>
-          <em>Login to meow!</em>
+          <h2>Welcome to Beeper!</h2>
+          <em>Login to Beep!</em>
           <form onSubmit={handleSubmit}>
             <Input>
               <label htmlFor="username">USERNAME:</label>

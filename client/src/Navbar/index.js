@@ -50,7 +50,7 @@ const Navbar = ({ handleLogout }) => {
       <Content>
         <Button>
           <button onClick={() => setOpen((isOpen) => !isOpen)}>
-            Now Meow!
+            Beep Now!
           </button>
         </Button>
         <Modal isOpen={isOpen} close={() => setOpen(false)}>

@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  padding: 0 20px;
   background: linear-gradient(to bottom, #58385d, #565e84);
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 600px) {
+    justify-content: space-evenly;
+    padding-right: 25px;
+  }
 `;
 
 export const Content = styled.div`
@@ -25,14 +29,24 @@ export const Content = styled.div`
     border-bottom: 2px solid #51f9b9;
     color: #51f9b9;
   }
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-wrap: row;
+  }
 `;
 
 export const LogoImg = styled.img`
+  padding: 0 20px;
   width: 120px;
   height: 100px;
 
   @media screen and (max-width: 400px) {
     width: 150px;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 0;
   }
 `;
 
