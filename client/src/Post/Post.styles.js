@@ -13,6 +13,11 @@ export const Wrapper = styled.div`
   transition: all 0.3s ease;
   animation: animateHeroImage 1s;
 
+  @media (max-width: 600px) {
+    width: 350px;
+  }
+    
+
   @keyframes animateHeroImage {
     from {
       opacity: 0;
@@ -98,6 +103,12 @@ export const Content2 = styled.div`
   transition: 0.8s ease;
   width: 500px;
   margin: 25px;
+
+  @media (max-width: 600px) {
+    width: 300px;
+    padding: 1rem;
+    margin: 1rem;
+  }
 `;
 
 export const Body2 = styled.div`
@@ -130,6 +141,9 @@ export const Button = styled.div`
     border: 1px solid #4caf50;
     border-radius: 3px;
     filter: drop-shadow(0px 1px 1px #000);
+
+    @media (max-width: 600px) {
+    }
 
     :hover {
       background-color: #4caf50;
