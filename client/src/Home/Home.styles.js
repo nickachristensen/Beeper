@@ -25,6 +25,7 @@ export const Button = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
   p {
     text-decoration: none;
     border: 2px solid #010100;

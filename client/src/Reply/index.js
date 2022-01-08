@@ -62,7 +62,7 @@ function Reply({ post, reply, onReplyDelete, toggle, setToggle }) {
         </Form>
       ) : (
         <Content>
-            <h6>{reply.user} Meowed:</h6>
+            <h6>{reply.user} Beeped:</h6>
             <p>"{reply.message}"</p>
         </Content>
       )}

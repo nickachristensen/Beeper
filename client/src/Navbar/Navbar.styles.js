@@ -62,6 +62,15 @@ export const Form = styled.div`
   width: 500px;
   margin: 25px;
 
+  @media (max-width: 600px) {
+    align-items: center;
+    width: 300px;
+    padding: 0;
+    margin: 0;
+  }
+    
+
+
   p {
     font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
