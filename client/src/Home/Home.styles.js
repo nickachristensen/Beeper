@@ -29,7 +29,6 @@ export const Button = styled.div`
     text-decoration: none;
     border: 2px solid #010100;
     padding: 15px;
-    font-size: ;
     color: #000;
     text-transform: uppercase;
     letter-spacing: 2px;
