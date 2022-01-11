@@ -142,9 +142,6 @@ export const Button = styled.div`
     border-radius: 3px;
     filter: drop-shadow(0px 1px 1px #000);
 
-    @media (max-width: 600px) {
-    }
-
     :hover {
       background-color: #4caf50;
       color: white;

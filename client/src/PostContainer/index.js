@@ -36,7 +36,7 @@ const PostContainer = ({ visible, showMoreItem }) => {
 
   return (
     <div>
-      <div className="post-container">{postList}</div>
+      <div className="post-container" >{postList}</div>
     </div>
   );
 };
