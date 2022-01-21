@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   margin: 15px;
-  width: 500px;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
@@ -41,12 +40,14 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+`;
 
 export const Body = styled.div`
   display: flex;
   flex-direction: row;
   padding: 10px;
+
 
   h3 {
     font-family: "Courier New";
@@ -64,6 +65,7 @@ export const Header = styled.div`
   padding-right: 8px;
   padding-left: 8px;
   padding-bottom: 5px;
+
   em {
     font-family: "Courier New";
   }

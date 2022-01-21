@@ -12,7 +12,7 @@ import {
   Input,
   Button,
 } from "./Navbar.styles";
-import catLogo from "../images/Meow.png";
+import beepLogo from "../images/beep.png";
 
 const Navbar = ({ handleLogout }) => {
   const [isOpen, setOpen] = useState(false);
@@ -45,7 +45,7 @@ const Navbar = ({ handleLogout }) => {
   return (
     <Wrapper>
       <Content>
-        <LogoImg src={catLogo} alt="catlogo" />
+        <LogoImg src={beepLogo} alt="beeplogo" />
       </Content>
       <Content>
         <Button>
