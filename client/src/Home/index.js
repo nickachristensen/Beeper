@@ -27,6 +27,7 @@ const Home = ({ handleLogout }) => {
 
       <div className="copywrite">
         <em>@Oct 29, 2021</em>
+        <em>v0.2</em>
       </div>
     </div>
   );
